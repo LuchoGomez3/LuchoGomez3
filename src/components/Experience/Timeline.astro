@@ -1,0 +1,69 @@
+---
+const EXPERIENCES = [
+  {
+    title: "YendoAr",
+    date: "Marzo 1, 2025",
+    latest: true,
+    description:
+      "En YendoAr, me desempeño como desarrollador FullStack, integrándome en un equipo ágil para construir una plataforma web innovadora de carpooling. Mi trabajo incluye la implementación de funcionalidades clave para la búsqueda y reserva de viajes en tiempo real, enfocándome en asegurar una interfaz de usuario intuitiva y de alto rendimiento. Además amplio mis conocimientos del lado del servidor como Backend Developer. Continuamente aplico nuevas metodologías y tecnologías para optimizar los flujos de trabajo y la calidad del producto.",
+    link: "https://yendoar.com/",
+    image: "/works/Yendo-logo.png",
+  },
+  {
+    title: "Checkbox Innovations",
+    date: "Octubre 15, 2023 - Febrero 28, 2025",
+    latest: false,
+    description:
+      "Mi experiencia en Checkbox Innovations marcó una transición clave de trainee a desarrollador FullStack Junior, proporcionándome una comprensión profunda del ciclo de vida del desarrollo de software en un entorno profesional. Colaboré en múltiples proyectos, donde apliqué y fortifiqué mis conocimientos en React, FastApi, Postgresql, Docker y en prácticas de desarrollo ágil. Esta etapa fue fundamental para mi crecimiento y autonomía como profesional.",
+    link: "https://checkboxinnovations.com/",
+    image: "/works/checkboxinnovations-logo.jpeg",
+  },
+];
+---
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+  {
+    EXPERIENCES.map((experience) => (
+      <li class="mb-10 ms-6">
+        <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+          <svg
+            class="w-2.5 h-2.5 text-shadow-green-600 dark:text-green-300"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
+            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+          </svg>
+        </span>
+        <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+          {experience.title}
+          {experience.latest && (
+            <span class=" text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm ms-3">
+              Latest
+            </span>
+          )}
+        </h3>
+        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+          {experience.date}
+        </time>
+        <div class="flex justify-between items-center gap-x-4">
+          <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+            {experience.description}
+          </p>
+          <img
+            src={experience.image}
+            alt={experience.title}
+            class="size-[200px] rounded-lg"
+          />
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  h3 > span {
+    background-color: #7bbe89;
+  }
+</style>

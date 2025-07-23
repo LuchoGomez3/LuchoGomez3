@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import About from "../components/About.astro";
+import "../styles/global.css";
+import Experience from "../components/Experience/Experience.astro";
+import Projects from "../components/Projects/Projects.astro";
+import Skills from "../components/Skills/Skills.astro";
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <main>
+    <About />
+    <Experience />
+    <Projects />
+    <Skills />
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    min-height: 100vh;
+  }
+</style>

@@ -2,8 +2,7 @@
 
 ![image](https://github.com/user-attachments/assets/5d016a00-a555-4f7f-8a83-0694ad7df54f)
 
-
-### <img src="https://github.com/user-attachments/assets/8e2d7aae-da6b-47b3-8290-18a60ca0b048" width="20"> A little more about me...  
+### <img src="https://github.com/user-attachments/assets/8e2d7aae-da6b-47b3-8290-18a60ca0b048" width="20"> A little more about me...
 
 ```javascript
 const aboutMe = {
@@ -27,6 +26,7 @@ const aboutMe = {
 ```
 
 <em><b>I love connecting with different people</b> so if you want to say <b>hi, I'll be happy to meet you more!</b> :)</em>
+
 <p align="center">
 <a href="www.linkedin.com/in/luciano-ariel-gomez-366292215">
     <img src="https://www.vectorlogo.zone/logos/linkedin/linkedin-icon.svg" alt="Luciano Gomez LinkedIn Profile" height="25" width="25">

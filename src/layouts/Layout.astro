@@ -1,0 +1,44 @@
+---
+import Header from "../components/Header.astro";
+import "@fontsource-variable/onest";
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon2.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Luciano Gomez Portfolio</title>
+  </head>
+  <body>
+    <Header />
+    <slot />
+  </body>
+</html>
+
+<style>
+  :root {
+    color-scheme: ligth dark;
+  }
+  html,
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(
+      180deg,
+      #05192a 23%,
+      #151e4f 55%,
+      #131b40 74%
+    );
+  }
+  html {
+    scroll-behavior: smooth;
+    font-family: "Onest Variable", sans-serif;
+  }
+</style>

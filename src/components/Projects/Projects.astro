@@ -1,0 +1,76 @@
+---
+import Color from "../Color";
+import Code from "../icons/Code.astro";
+import ProjectCard from "./ProjectCard.astro";
+
+const PROJECTS = [
+  {
+    title: "E-commerce",
+    description:
+      "Aplicación web full-stack que simula una tienda en línea, permitiendo a los usuarios explorar productos, añadir artículos al carrito de compras y gestionar contactos con el vendedor. Desarrollada con React y TypeScript en el frontend, y FastAPI, SQLModel, Alembic y PostgreSQL en el backend, orquestado con Docker.",
+    imgSrc: "/projects/Ecommerce_card.png",
+    link: "https://ecommerce-lucho.vercel.app/",
+    tags: [
+      "FastApi",
+      "Alembic",
+      "SQLModel",
+      "React",
+      "TypeScript",
+      "Docker",
+      "PostgreSQL",
+    ],
+  },
+  {
+    title: "Minimalist Blog",
+    description:
+      "Aplicación de blog web con funcionalidades CRUD completas (crear, ver, reaccionar y eliminar posts). Desarrollada con React, TypeScript y Tailwind CSS para una interfaz moderna y responsiva, utilizando NestJS y Prisma como backend para la gestión de datos en PostgreSQL, optimizada con Vite.",
+    imgSrc: "/projects/Blog_Card.jpeg",
+    link: "https://minimalist-blog-lucho.vercel.app/",
+    tags: [
+      "NestJs",
+      "Prisma",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "PostgreSQL",
+    ],
+  },
+  {
+    title: "Todo List",
+    description:
+      "Aplicación full-stack intuitiva para la gestión de tareas diarias. Permite a los usuarios organizar y controlar sus actividades de forma eficiente. Construida con React y TypeScript en el frontend, y un backend con Node.js y Express para la persistencia de datos en PostgreSQL, todo conteinerizado con Docker.",
+    imgSrc: "/projects/TODO_list_Card.jpg",
+    link: "https://minimalist-blog-lucho.vercel.app/",
+    tags: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Docker",
+      "NodeJs",
+      "Express",
+      "PostgreSQL",
+    ],
+  },
+];
+---
+
+<section class="w-full">
+  <h2 class="text-4xl py-10 flex items-center gap-x-4">
+    <Code size={42} color={Color.secondary40} />
+    Projects
+  </h2>
+  <div class="flex flex-wrap justify-evenly gap-x-4 gap-y-10">
+    {
+      PROJECTS.map(({ title, description, imgSrc, link, tags }) => (
+        <ProjectCard
+          title={title}
+          description={description}
+          imgSrc={imgSrc}
+          link={link}
+          tags={tags}
+        />
+      ))
+    }
+  </div>
+</section>

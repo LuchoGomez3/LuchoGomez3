@@ -1,0 +1,114 @@
+---
+import Color from "../Color";
+import SkillCard from "./SkillCard.astro";
+import SkillsIcon from "../icons/SkillsIcon.astro";
+
+const SKILLS_BACKEND = [
+  {
+    title: "NodeJs",
+    image: "/skills/backend/nodeJs.png",
+  },
+  {
+    title: "Express",
+    image: "/skills/backend/express.png",
+  },
+  {
+    title: "Python",
+    image: "/skills/backend/python.png",
+  },
+  {
+    title: "Docker",
+    image: "/skills/backend/docker.png",
+  },
+  {
+    title: "PostgreSQL",
+    image: "/skills/backend/postgresql.png",
+  },
+  {
+    title: "MongoDB",
+    image: "/skills/backend/mongoDB.png",
+  },
+  {
+    title: "SQL",
+    image: "/skills/backend/sql.png",
+  },
+];
+
+const SKILLS_FRONTEND = [
+  {
+    title: "HTML5",
+    image: "/skills/frontend/html.png",
+  },
+  {
+    title: "CSS3",
+    image: "/skills/frontend/css.png",
+  },
+  {
+    title: "JavaScript",
+    image: "/skills/frontend/js.png",
+  },
+  {
+    title: "React",
+    image: "/skills/frontend/react.png",
+  },
+  {
+    title: "Tailwind CSS",
+    image: "/skills/frontend/tailwind.png",
+  },
+];
+
+const SKILLS_LEARNING = [
+  {
+    title: "AWS",
+    image: "/skills/learning/aws.png",
+  },
+  {
+    title: "Prisma",
+    image: "/skills/learning/prisma.png",
+  },
+  {
+    title: "Astro",
+    image: "/skills/learning/astro.svg",
+  },
+];
+
+const SKILLS_TOOLS = [
+  {
+    title: "Figma",
+    image: "/skills/tools/figma.png",
+  },
+  {
+    title: "GitHub",
+    image: "/skills/tools/github.png",
+  },
+  {
+    title: "Jira",
+    image: "/skills/tools/jira.png",
+  },
+  {
+    title: "Linux",
+    image: "/skills/tools/linux.png",
+  },
+  {
+    title: "Postman",
+    image: "/skills/tools/postman.png",
+  },
+  {
+    title: "Windsurf",
+    image: "/skills/tools/windsurf.png",
+  },
+];
+---
+
+<section class="w-full">
+  <h2 class="text-4xl py-10 flex items-center gap-x-4">
+    <SkillsIcon size={42} color={Color.secondary40} />
+    Skills
+  </h2>
+  <div class="grid grid-cols-4 gap-10">
+    <SkillCard title="Frontend" skills={SKILLS_FRONTEND} />
+    <SkillCard title="Backend" skills={SKILLS_BACKEND} />
+    <SkillCard title="Learning" skills={SKILLS_LEARNING} />
+    <SkillCard title="Tools" skills={SKILLS_TOOLS} />
+  </div>
+</section>

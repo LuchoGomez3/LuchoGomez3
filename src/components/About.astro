@@ -1,0 +1,48 @@
+---
+import Color from "./Color";
+import X from "./icons/X.astro";
+import Instagram from "./icons/Instagram.astro";
+import Github from "./icons/Github.astro";
+import Linkedin from "./icons/Linkedin.astro";
+---
+
+<section
+  class="flex justify-center items-center w-[1200px] h-[600px] gap-y-2 py-15"
+>
+  <img
+    class="rounded-full w-[400px] h-[400px] object-cover"
+    src="/Perfil.jpeg"
+    alt="Foto de perfil de Luciano Gomez"
+  />
+  <div class="flex flex-col gap-y-2 px-8">
+    <h1 class="text-6xl">Hola, soy Luciano Gomez</h1>
+    <h2 class="text-2xl py-4">
+      +2 años de experiencia. <span
+        >Desarrollador Web Full Stack. De Córdoba, Argentina 🇦🇷.
+      </span>Especializado en crear aplicaciones web eficientes y modernas.
+    </h2>
+    <div class="flex flex-row justify-around w-full py-10 px-2">
+      <a href="https://x.com/Lucho_Gomez306" target="_blank">
+        <X size={42} color={Color.secondary40} />
+      </a>
+      <a href="https://www.instagram.com/luchoo_gomez3/" target="_blank">
+        <Instagram size={42} color={Color.secondary40} />
+      </a>
+      <a href="https://github.com/LuchoGomez3" target="_blank">
+        <Github size={42} color={Color.secondary40} />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/luciano-ariel-gomez-366292215/"
+        target="_blank"
+      >
+        <Linkedin size={42} color={Color.secondary40} />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  span {
+    color: #7bbe89;
+  }
+</style>

@@ -7,35 +7,47 @@ import Linkedin from "./icons/Linkedin.astro";
 ---
 
 <section
-  class="flex justify-center items-center w-[1200px] h-[600px] gap-y-2 py-15"
+  class="flex flex-col md:flex-row justify-center items-center w-full max-w-[1200px] h-auto md:h-[600px] gap-y-6 md:gap-x-8 py-10 px-4"
 >
   <img
-    class="rounded-full w-[400px] h-[400px] object-cover"
+    class="hidden md:block rounded-full w-[250px] lg:w-[400px] h-[250px] lg:h-[400px] object-cover"
     src="/Perfil.jpeg"
     alt="Foto de perfil de Luciano Gomez"
   />
-  <div class="flex flex-col gap-y-2 px-8">
-    <h1 class="text-6xl">Hola, soy Luciano Gomez</h1>
-    <h2 class="text-2xl py-4">
-      +2 años de experiencia. <span
-        >Desarrollador Web Full Stack. De Córdoba, Argentina 🇦🇷.
-      </span>Especializado en crear aplicaciones web eficientes y modernas.
+
+  <div class="flex flex-col gap-y-4 md:px-8 text-center md:text-left">
+    <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold">
+      Hola, soy Luciano Gomez
+    </h1>
+    <h2 class="text-base sm:text-lg lg:text-2xl py-2 sm:py-4">
+      +2 años de experiencia.
+      <span class="text-[#7bbe89]"
+        >Desarrollador Web Full Stack. De Córdoba, Argentina 🇦🇷.</span
+      >
+      Especializado en crear aplicaciones web eficientes y modernas.
     </h2>
-    <div class="flex flex-row justify-around w-full py-10 px-2">
+
+    <div class="flex justify-center md:justify-around gap-4 sm:gap-6 py-6">
       <a href="https://x.com/Lucho_Gomez306" target="_blank">
-        <X size={42} color={Color.secondary40} />
+        <X class="size-8 sm:size-6 lg:size-12" color={Color.secondary40} />
       </a>
       <a href="https://www.instagram.com/luchoo_gomez3/" target="_blank">
-        <Instagram size={42} color={Color.secondary40} />
+        <Instagram
+          class="size-8 sm:size-6 lg:size-12"
+          color={Color.secondary40}
+        />
       </a>
       <a href="https://github.com/LuchoGomez3" target="_blank">
-        <Github size={42} color={Color.secondary40} />
+        <Github class="size-8 sm:size-6 lg:size-12" color={Color.secondary40} />
       </a>
       <a
         href="https://www.linkedin.com/in/luciano-ariel-gomez-366292215/"
         target="_blank"
       >
-        <Linkedin size={42} color={Color.secondary40} />
+        <Linkedin
+          class="size-8 sm:size-6 lg:size-12"
+          color={Color.secondary40}
+        />
       </a>
     </div>
   </div>

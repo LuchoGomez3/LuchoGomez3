@@ -21,7 +21,9 @@ const EXPERIENCES = [
 ];
 ---
 
-<ol class="relative border-s border-gray-200 dark:border-gray-700">
+<ol
+  class="relative border-s border-gray-200 dark:border-gray-700 px-4 sm:px-6 lg:px-8"
+>
   {
     EXPERIENCES.map((experience) => (
       <li class="mb-10 ms-6">
@@ -36,25 +38,25 @@ const EXPERIENCES = [
             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
           </svg>
         </span>
-        <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 dark:text-white">
+        <h3 class="flex items-center mb-1 text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
           {experience.title}
           {experience.latest && (
-            <span class=" text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm ms-3">
+            <span class="text-xs sm:text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm ms-3">
               Latest
             </span>
           )}
         </h3>
-        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+        <time class="block mb-2 text-xs sm:text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
           {experience.date}
         </time>
-        <div class="flex justify-between items-center gap-x-4">
-          <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <p class="mb-4 text-sm sm:text-base font-normal text-gray-500 dark:text-gray-400">
             {experience.description}
           </p>
           <img
             src={experience.image}
             alt={experience.title}
-            class="size-[200px] rounded-lg"
+            class="w-full sm:w-[150px] md:w-[200px] rounded-lg object-cover"
           />
         </div>
       </li>

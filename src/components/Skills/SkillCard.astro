@@ -11,15 +11,22 @@ const { title, skills } = Astro.props;
 ---
 
 <div
-  class="flex flex-col items-center hover:translate-y-[-10px] transition-all duration-200"
+  class="flex flex-col items-center hover:translate-y-[-10px] transition-all duration-200 p-2 sm:p-4"
 >
-  <h3 class="text-xl font-semibold mb-2 mx-auto">{title}</h3>
-  <div class="grid grid-cols-3 gap-6">
+  <h3 class="text-lg sm:text-xl font-semibold mb-2 mx-auto text-center">
+    {title}
+  </h3>
+
+  <div class="grid grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-6">
     {
       skills.map(({ title, image }) => (
-        <div class="flex flex-col items-center">
-          <img src={image} alt={title} class="w-12 h-12 mb-2" />
-          <span class="text-sm">{title}</span>
+        <div class="flex flex-col items-center text-center">
+          <img
+            src={image}
+            alt={title}
+            class="w-10 h-10 sm:w-12 sm:h-12 mb-1 sm:mb-2"
+          />
+          <span class="text-xs sm:text-sm">{title}</span>
         </div>
       ))
     }

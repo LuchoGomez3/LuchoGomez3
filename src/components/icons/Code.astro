@@ -1,23 +1,21 @@
 ---
 interface Props {
-  size?: number;
   color?: string;
+  class?: string;
 }
 
-const { size = 24, color = "currentColor" } = Astro.props;
+const { color = "currentColor", class: className } = Astro.props;
 ---
 
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width={size}
-  height={size}
   viewBox="0 0 24 24"
   fill="none"
   stroke={color}
   stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
-  class="icon icon-tabler icons-tabler-outline icon-tabler-code"
+  class={`icon icon-tabler icons-tabler-outline icon-tabler-code ${className}`}
   ><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path
     d="M7 8l-4 4l4 4"></path><path d="M17 8l4 4l-4 4"></path><path
     d="M14 4l-4 16"></path></svg

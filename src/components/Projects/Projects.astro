@@ -55,12 +55,15 @@ const PROJECTS = [
 ];
 ---
 
-<section class="w-full">
-  <h2 class="text-4xl py-10 flex items-center gap-x-4">
-    <Code size={42} color={Color.secondary40} />
+<section>
+  <h2 class="text-2xl md:text-4xl py-10 flex items-center gap-x-4">
+    <Code class="size-6 md:size-8 lg:size-12" color={Color.secondary40} />
     Projects
   </h2>
-  <div class="flex flex-wrap justify-evenly gap-x-4 gap-y-10">
+
+  <div
+    class="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+  >
     {
       PROJECTS.map(({ title, description, imgSrc, link, tags }) => (
         <ProjectCard

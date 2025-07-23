@@ -1,0 +1,33 @@
+---
+import Menu from "./Menu.astro";
+---
+
+<header
+  class="fixed top-0 left-0 w-full bg-[#05192a] text-white shadow-md z-50"
+>
+  <div class="flex justify-between items-center px-4 sm:px-8 py-3 h-16">
+    <div class="flex items-center gap-x-2 md:text-lg text-sm font-bold">
+      <img
+        class="md:hidden rounded-full w-[25px] h-[25px] object-cover"
+        src="/Perfil.jpeg"
+        alt="Foto de perfil de Luciano Gomez"
+      />
+      Luciano Gomez
+    </div>
+
+    <nav class="hidden md:flex gap-x-8 text-sm sm:text-base">
+      <a href="#" class="hover:text-gray-300">Home</a>
+      <a href="#" class="hover:text-gray-300">Experience</a>
+      <a href="#" class="hover:text-gray-300">Projects</a>
+      <a href="#" class="hover:text-gray-300">Skills</a>
+    </nav>
+
+    <Menu />
+  </div>
+</header>
+
+<style>
+  header {
+    background-color: #05192a;
+  }
+</style>

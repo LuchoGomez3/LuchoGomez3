@@ -2,6 +2,7 @@
 import Header from "../components/Header/Header.astro";
 import "@fontsource-variable/onest";
 import "../styles/global.css";
+import Footer from "../components/Footer/Footer.astro";
 ---
 
 <!doctype html>
@@ -16,30 +17,76 @@ import "../styles/global.css";
   <body>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
+<script is:inline>
+  // Function to set the theme
+  function setTheme(theme) {
+    const html = document.documentElement;
+    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+      localStorage.theme = 'dark';
+    } else {
+      html.classList.remove('dark');
+      localStorage.theme = 'light';
+    }
+  }
+
+  // Toggle between light and dark theme
+  function toggleTheme() {
+    const isDark = document.documentElement.classList.contains('dark');
+    setTheme(isDark ? 'light' : 'dark');
+  }
+
+  // Initialize theme on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set the theme based on localStorage or system preference
+    setTheme(localStorage.theme);
+    
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+      if (!('theme' in localStorage)) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  });
+</script>
+
 <style>
   :root {
-    color-scheme: ligth dark;
+    color-scheme: light dark;
   }
   html,
   body {
+    transition:
+      background-color 0.3s,
+      color 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     min-height: 100vh;
     padding-top: 1rem;
-    background-image: linear-gradient(
-      180deg,
-      #05192a 23%,
-      #151e4f 55%,
-      #131b40 74%
-    );
+    background-color: rgb(255, 255, 255);
+    color: #000;
   }
   html {
     scroll-behavior: smooth;
     font-family: "Onest Variable", sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html,
+    body {
+      background-image: linear-gradient(
+        180deg,
+        #05192a 23%,
+        #151e4f 55%,
+        #131b40 74%
+      );
+      color: #fff;
+    }
   }
 </style>

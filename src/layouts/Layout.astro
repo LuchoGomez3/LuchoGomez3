@@ -15,42 +15,52 @@ import Footer from "../components/Footer/Footer.astro";
     <title>Luciano Gomez Portfolio</title>
   </head>
   <body>
-    <Header />
-    <slot />
-    <Footer />
+    <div id="background-mask">
+      <Header />
+      <slot />
+      <Footer />
+    </div>
   </body>
 </html>
 
 <script is:inline>
+  const mask = document.getElementById("background-mask");
+  document.addEventListener("DOMContentLoaded", () => {
+    mask.classList.add("unlock");
+  });
   // Function to set the theme
   function setTheme(theme) {
-    const html = document.documentElement;
-    if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      html.classList.add('dark');
-      localStorage.theme = 'dark';
+    if (
+      theme === "dark" ||
+      (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      html.classList.add("dark");
+      localStorage.theme = "dark";
     } else {
-      html.classList.remove('dark');
-      localStorage.theme = 'light';
+      html.classList.remove("dark");
+      localStorage.theme = "light";
     }
   }
 
   // Toggle between light and dark theme
   function toggleTheme() {
-    const isDark = document.documentElement.classList.contains('dark');
-    setTheme(isDark ? 'light' : 'dark');
+    const isDark = document.documentElement.classList.contains("dark");
+    setTheme(isDark ? "light" : "dark");
   }
 
   // Initialize theme on page load
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     // Set the theme based on localStorage or system preference
     setTheme(localStorage.theme);
-    
+
     // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-      if (!('theme' in localStorage)) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    });
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) => {
+        if (!("theme" in localStorage)) {
+          setTheme(e.matches ? "dark" : "light");
+        }
+      });
   });
 </script>
 
@@ -68,13 +78,32 @@ import Footer from "../components/Footer/Footer.astro";
     align-items: center;
     width: 100%;
     min-height: 100vh;
-    padding-top: 1rem;
     background-color: rgb(255, 255, 255);
     color: #000;
   }
   html {
     scroll-behavior: smooth;
     font-family: "Onest Variable", sans-serif;
+  }
+
+  #background-mask {
+    padding-top: 3rem;
+    mask-image: url("/lock.svg");
+    mask-position: center 25%;
+    mask-repeat: no-repeat;
+    mask-size: 150px;
+
+    &.unlock {
+      animation: lock-reveal 5s forwards ease-in-out;
+    }
+  }
+  @keyframes lock-reveal {
+    0% {
+      mask-size: 150px;
+    }
+    100% {
+      mask-size: 1000vh;
+    }
   }
 
   @media (prefers-color-scheme: dark) {

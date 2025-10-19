@@ -13,6 +13,20 @@ import Footer from "../components/Footer/Footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon2.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Luciano Gomez Portfolio</title>
+    <script is:inline>
+      // Aplicar tema inicial INMEDIATAMENTE (antes de que se renderice la página)
+      (function () {
+        if (
+          localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="background-mask">
@@ -20,6 +34,42 @@ import Footer from "../components/Footer/Footer.astro";
       <slot />
       <Footer />
     </div>
+
+    <script is:inline>
+      // Función global para toggle
+      window.toggleTheme = function () {
+        const html = document.documentElement;
+        const isDark = html.classList.toggle("dark");
+        localStorage.theme = isDark ? "dark" : "light";
+
+        // Actualizar iconos si existen
+        const darkIcon = document.getElementById("theme-toggle-dark-icon");
+        const lightIcon = document.getElementById("theme-toggle-light-icon");
+
+        if (darkIcon && lightIcon) {
+          darkIcon.classList.toggle("hidden", !isDark);
+          lightIcon.classList.toggle("hidden", isDark);
+        }
+      };
+
+      // Inicializar iconos cuando el DOM esté listo
+      document.addEventListener("DOMContentLoaded", function () {
+        const isDark = document.documentElement.classList.contains("dark");
+        const darkIcon = document.getElementById("theme-toggle-dark-icon");
+        const lightIcon = document.getElementById("theme-toggle-light-icon");
+
+        if (darkIcon && lightIcon) {
+          darkIcon.classList.toggle("hidden", !isDark);
+          lightIcon.classList.toggle("hidden", isDark);
+        }
+
+        // Añadir evento al botón
+        const themeToggleBtn = document.getElementById("theme-toggle");
+        if (themeToggleBtn) {
+          themeToggleBtn.addEventListener("click", window.toggleTheme);
+        }
+      });
+    </script>
   </body>
 </html>
 
@@ -27,40 +77,6 @@ import Footer from "../components/Footer/Footer.astro";
   const mask = document.getElementById("background-mask");
   document.addEventListener("DOMContentLoaded", () => {
     mask.classList.add("unlock");
-  });
-  // Function to set the theme
-  function setTheme(theme) {
-    if (
-      theme === "dark" ||
-      (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
-    ) {
-      html.classList.add("dark");
-      localStorage.theme = "dark";
-    } else {
-      html.classList.remove("dark");
-      localStorage.theme = "light";
-    }
-  }
-
-  // Toggle between light and dark theme
-  function toggleTheme() {
-    const isDark = document.documentElement.classList.contains("dark");
-    setTheme(isDark ? "light" : "dark");
-  }
-
-  // Initialize theme on page load
-  document.addEventListener("DOMContentLoaded", () => {
-    // Set the theme based on localStorage or system preference
-    setTheme(localStorage.theme);
-
-    // Listen for system theme changes
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        if (!("theme" in localStorage)) {
-          setTheme(e.matches ? "dark" : "light");
-        }
-      });
   });
 </script>
 
@@ -79,6 +95,7 @@ import Footer from "../components/Footer/Footer.astro";
     width: 100%;
     min-height: 100vh;
     background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(180deg, #ffffff 15%, #a1aea9 98%);
     color: #000;
   }
   html {

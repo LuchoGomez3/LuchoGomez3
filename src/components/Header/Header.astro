@@ -18,31 +18,30 @@ import Menu from "./Menu.astro";
     <nav class="hidden md:flex items-center gap-x-8 text-sm sm:text-base">
       <a
         href="#top"
-        class="hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 rounded-full"
+        class="hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 dark:hover:text-white rounded-full"
         >Home</a
       >
       <a
         href="#experience"
-        class="hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 rounded-full"
+        class="hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 dark:hover:text-white rounded-full"
         >Experience</a
       >
       <a
         href="#projects"
-        class="hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 rounded-full"
+        class="hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 dark:hover:text-white rounded-full"
         >Projects</a
       >
       <a
         href="#skills"
-        class="hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 rounded-full"
+        class="hover:text-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-2 dark:hover:text-white rounded-full"
         >Skills</a
       >
 
       <!-- Theme Toggle Button -->
       <button
         id="theme-toggle"
-        class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+        class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors dark:hover:text-white cursor-pointer"
         aria-label="Toggle dark mode"
-        onclick="toggleTheme()"
       >
         <svg
           id="theme-toggle-dark-icon"
@@ -71,28 +70,5 @@ import Menu from "./Menu.astro";
     </nav>
 
     <Menu />
-
-    <script is:inline>
-      // Initialize theme toggle icons based on current theme
-      function updateThemeIcons() {
-        const isDark = document.documentElement.classList.contains("dark");
-        document
-          .getElementById("theme-toggle-dark-icon")
-          .classList.toggle("hidden", !isDark);
-        document
-          .getElementById("theme-toggle-light-icon")
-          .classList.toggle("hidden", isDark);
-      }
-
-      // Call on page load
-      updateThemeIcons();
-
-      // Override the existing toggleTheme to also update icons
-      const originalToggleTheme = window.toggleTheme;
-      window.toggleTheme = function () {
-        originalToggleTheme();
-        updateThemeIcons();
-      };
-    </script>
   </div>
 </header>

@@ -11,15 +11,15 @@ const { title, description, imgSrc, link, tags } = Astro.props;
 ---
 
 <div
-  class="bg-white border border-gray-200 rounded-4xl shadow-sm dark:bg-[#05192a] dark:border-gray-700 hover:translate-y-[-5px] transition-all duration-300 flex flex-col max-w-full"
+  class="bg-gray-200 border border-gray-200 rounded-4xl shadow-sm dark:bg-[#05192a] dark:border-gray-700 hover:translate-y-[-5px] transition-all duration-300 flex flex-col max-w-full"
 >
-  <a href={link}>
-    <img
-      class="rounded-t-lg object-cover w-full h-48 sm:h-56 md:h-64"
-      src={imgSrc}
-      alt={title}
-    />
-  </a>
+  <!-- <a href={link}> -->
+  <img
+    class="rounded-t-lg object-cover w-full h-48 sm:h-56 md:h-64"
+    src={imgSrc}
+    alt={title}
+  />
+  <!-- </a> -->
 
   <div class="p-4 sm:p-5 flex flex-col flex-1">
     <div>

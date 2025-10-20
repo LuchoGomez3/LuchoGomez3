@@ -54,6 +54,7 @@ const EXPERIENCES = [
             {experience.description}
           </p>
           <img
+            id="experience-img"
             src={experience.image}
             alt={experience.title}
             class="w-full sm:w-[150px] md:w-[200px] rounded-lg object-cover border border-gray-200 dark:border-gray-700"
@@ -63,6 +64,10 @@ const EXPERIENCES = [
     ))
   }
 </ol>
+
+<script>
+  import "./exp.js";
+</script>
 
 <style>
   h3 > span {

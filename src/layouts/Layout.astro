@@ -12,9 +12,12 @@ import Footer from "../components/Footer/Footer.astro";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon2.svg" />
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>
+      import { animatedAbout } from "../components/about.js";
+      animatedAbout();
+    </script>
     <title>Luciano Gomez Portfolio</title>
     <script is:inline>
-      // Aplicar tema inicial INMEDIATAMENTE (antes de que se renderice la página)
       (function () {
         if (
           localStorage.theme === "dark" ||
@@ -28,7 +31,7 @@ import Footer from "../components/Footer/Footer.astro";
       })();
     </script>
   </head>
-  <body>
+  <body class="transition-colors">
     <div id="background-mask">
       <Header />
       <slot />
@@ -36,7 +39,6 @@ import Footer from "../components/Footer/Footer.astro";
     </div>
 
     <script is:inline>
-      // Función global para toggle
       window.toggleTheme = function () {
         const html = document.documentElement;
         const isDark = html.classList.toggle("dark");

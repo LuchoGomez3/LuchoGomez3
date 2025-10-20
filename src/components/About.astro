@@ -17,10 +17,10 @@ import Linkedin from "./icons/Linkedin.astro";
   />
 
   <div class="flex flex-col gap-y-4 md:px-8 text-center md:text-left">
-    <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold">
+    <h1 id="about-title" class="text-3xl sm:text-4xl lg:text-6xl font-bold">
       Hola, soy Luciano Gomez
     </h1>
-    <h2 class="text-base sm:text-lg lg:text-2xl py-2 sm:py-4">
+    <h2 id="about-text" class="text-base sm:text-lg lg:text-2xl py-2 sm:py-4">
       +2 años de experiencia.
       <span class="text-[#7bbe89]"
         >Desarrollador Web Full Stack. De Córdoba, Argentina 🇦🇷.</span
@@ -53,6 +53,9 @@ import Linkedin from "./icons/Linkedin.astro";
     </div>
   </div>
 </section>
+<script>
+  import "./about.js";
+</script>
 
 <style>
   span {

@@ -11,6 +11,7 @@ gsap.from("#about-title", {
 const subtitleText = new SplitText("#about-text", {
   type: "chars, words",
 });
+
 subtitleText.chars.forEach((char, index) => {
   let charTl = gsap.timeline();
 
@@ -22,13 +23,4 @@ subtitleText.chars.forEach((char, index) => {
     duration: 2.5,
     opacity: 0,
   });
-
-  charTl.from(
-    char,
-    {
-      color: `hsl(${gsap.utils.random(0, 100)}, 100%, 50%)`,
-      duration: 1,
-    },
-    "-=1.5"
-  );
 });

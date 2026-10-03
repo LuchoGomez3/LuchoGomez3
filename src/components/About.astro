@@ -22,43 +22,82 @@ import Linkedin from "./icons/Linkedin.astro";
     </h1>
     <h2 id="about-text" class="text-base sm:text-lg lg:text-2xl py-2 sm:py-4">
       +2 años de experiencia.
-      <span class="text-[#7bbe89]"
+      <span class="highlight-text"
         >Desarrollador Web Full Stack. De Córdoba, Argentina 🇦🇷.</span
       >
       Especializado en crear aplicaciones web eficientes y modernas.
     </h2>
 
     <div class="flex justify-center md:justify-around gap-4 sm:gap-6 py-6">
-      <a href="https://x.com/Lucho_Gomez306" target="_blank">
-        <X class="size-8 sm:size-6 lg:size-12" color={Color.secondary40} />
-      </a>
-      <a href="https://www.instagram.com/luchoo_gomez3/" target="_blank">
-        <Instagram
-          class="size-8 sm:size-6 lg:size-12"
-          color={Color.secondary40}
-        />
-      </a>
-      <a href="https://github.com/LuchoGomez3" target="_blank">
-        <Github class="size-8 sm:size-6 lg:size-12" color={Color.secondary40} />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/luciano-ariel-gomez-366292215/"
-        target="_blank"
+      <div
+        class="flex items-center gap-2 bg-gray-200 dark:bg-gray-800 p-2 rounded-2xl"
       >
-        <Linkedin
-          class="size-8 sm:size-6 lg:size-12"
-          color={Color.secondary40}
-        />
-      </a>
+        <a
+          href="https://x.com/Lucho_Gomez306"
+          target="_blank"
+          class="social-icon"
+        >
+          <X class="size-8 sm:size-6 lg:size-12" color={Color.primary} />
+        </a>
+      </div>
+      <div
+        class="flex items-center gap-2 bg-gray-200 dark:bg-gray-800 p-2 rounded-2xl"
+      >
+        <a
+          href="https://www.instagram.com/luchoo_gomez3/"
+          target="_blank"
+          class="social-icon"
+        >
+          <Instagram
+            class="size-8 sm:size-6 lg:size-12"
+            color={Color.secondary}
+          />
+        </a>
+      </div>
+      <div
+        class="flex items-center gap-2 bg-gray-200 dark:bg-gray-800 p-2 rounded-2xl"
+      >
+        <a
+          href="https://github.com/LuchoGomez3"
+          target="_blank"
+          class="social-icon"
+        >
+          <Github class="size-8 sm:size-6 lg:size-12" color={Color.gray700} />
+        </a>
+      </div>
+      <div
+        class="flex items-center gap-2 bg-gray-200 dark:bg-gray-800 p-2 rounded-2xl"
+      >
+        <a
+          href="https://www.linkedin.com/in/luciano-ariel-gomez-366292215/"
+          target="_blank"
+          class="social-icon"
+        >
+          <Linkedin class="size-8 sm:size-6 lg:size-12" color={Color.primary} />
+        </a>
+      </div>
     </div>
   </div>
-</section>
-<script>
-  import "./about.js";
-</script>
+  <script>
+    import "./about.js";
+  </script>
 
-<style>
-  span {
-    color: #7bbe89;
-  }
-</style>
+  <style>
+    .highlight-text {
+      color: #10b981;
+      font-weight: 600;
+    }
+
+    .dark .highlight-text {
+      color: #34d399;
+    }
+
+    .social-icon {
+      transition: transform 0.2s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-4px);
+    }
+  </style>
+</section>

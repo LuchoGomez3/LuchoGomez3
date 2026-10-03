@@ -1,11 +1,20 @@
 ---
 const EXPERIENCES = [
   {
-    title: "YendoAr",
-    date: "Marzo 1, 2025",
+    title: "Blumb AI",
+    date: "Noviembre 1, 2025",
     latest: true,
     description:
-      "En YendoAr, me desempeño como desarrollador FullStack, integrándome en un equipo ágil para construir una plataforma web innovadora de carpooling. Mi trabajo incluye la implementación de funcionalidades clave para la búsqueda y reserva de viajes en tiempo real, enfocándome en asegurar una interfaz de usuario intuitiva y de alto rendimiento. Además amplio mis conocimientos del lado del servidor como Backend Developer. Continuamente aplico nuevas metodologías y tecnologías para optimizar los flujos de trabajo y la calidad del producto.",
+      "En Blumb AI, me desempeño como FullStack Engineer especializado en soluciones de inteligencia artificial. Mi trabajo se centra en el desarrollo de aplicaciones innovadoras que integran modelos de IA avanzados, procesamiento de lenguaje natural, automatizaciones con n8n y aprendizaje automático. Colaboro en la construcción de productos que transforman la manera en que las empresas interactúan con la tecnología, aplicando las últimas tendencias en IA generativa y automatización inteligente para crear experiencias de usuario excepcionales.",
+    link: "https://blumb.ai/",
+    image: "/works/Blumb.jpeg",
+  },
+  {
+    title: "YendoAr",
+    date: "Marzo 1, 2024 - Octubre 30, 2025",
+    latest: false,
+    description:
+      "En YendoAr, me desempeñé como desarrollador FullStack, integrándome en un equipo ágil para construir una plataforma web innovadora de carpooling. Mi trabajo incluyó la implementación de funcionalidades clave para la búsqueda y reserva de viajes en tiempo real, enfocándome en asegurar una interfaz de usuario intuitiva y de alto rendimiento. Además amplié mis conocimientos del lado del servidor como Backend Developer. Continuamente apliqué nuevas metodologías y tecnologías para optimizar los flujos de trabajo y la calidad del producto.",
     link: "https://yendoar.com/",
     image: "/works/Yendo-logo.png",
   },
@@ -22,14 +31,14 @@ const EXPERIENCES = [
 ---
 
 <ol
-  class="relative border-s border-gray-200 dark:border-gray-700 px-4 sm:px-6 lg:px-8"
+  class="relative border-s border-gray-300 dark:border-gray-600 px-4 sm:px-6 lg:px-8"
 >
   {
     EXPERIENCES.map((experience) => (
       <li class="mb-10 ms-6">
         <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
           <svg
-            class="w-2.5 h-2.5 text-shadow-green-600 dark:text-green-300"
+            class="w-2.5 h-2.5 text-blue-600 dark:text-blue-300"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -41,23 +50,23 @@ const EXPERIENCES = [
         <h3 class="flex items-center mb-1 text-base sm:text-lg font-semibold text-gray-900 dark:text-white">
           {experience.title}
           {experience.latest && (
-            <span class="text-xs sm:text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm ms-3">
+            <span class="latest-badge text-xs sm:text-sm font-medium px-3 py-1 rounded-full ms-3">
               Latest
             </span>
           )}
         </h3>
-        <time class="block mb-2 text-xs sm:text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
+        <time class="block mb-2 text-xs sm:text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
           {experience.date}
         </time>
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-          <p class="mb-4 text-xl font-normal text-gray-500 dark:text-gray-400">
+          <p class="mb-4 text-base font-normal text-gray-600 dark:text-gray-300">
             {experience.description}
           </p>
           <img
             id="experience-img"
             src={experience.image}
             alt={experience.title}
-            class="w-full sm:w-[150px] md:w-[200px] rounded-lg object-cover border border-gray-200 dark:border-gray-700"
+            class="w-full sm:w-[150px] md:w-[200px] rounded-lg object-cover border-2 border-gray-200 dark:border-gray-700 shadow-md hover:shadow-xl transition-shadow duration-300"
           />
         </div>
       </li>
@@ -70,7 +79,15 @@ const EXPERIENCES = [
 </script>
 
 <style>
-  h3 > span {
-    background-color: #7bbe89;
+  .latest-badge {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  }
+
+  .dark .latest-badge {
+    background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+    color: #0f172a;
+    box-shadow: 0 2px 8px rgba(52, 211, 153, 0.4);
   }
 </style>

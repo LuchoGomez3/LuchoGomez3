@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Limpiar Tema - Portfolio</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+      .container {
+        text-align: center;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+        backdrop-filter: blur(10px);
+      }
+      button {
+        margin-top: 1rem;
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+        background: white;
+        color: #667eea;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: transform 0.2s;
+      }
+      button:hover {
+        transform: scale(1.05);
+      }
+      .success {
+        margin-top: 1rem;
+        padding: 1rem;
+        background: rgba(16, 185, 129, 0.2);
+        border-radius: 0.5rem;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🔧 Limpiar Configuración de Tema</h1>
+      <p>
+        Si el tema no está funcionando correctamente, haz clic aquí para limpiar
+        la configuración:
+      </p>
+      <button onclick="clearTheme()">Limpiar y Reiniciar</button>
+      <div class="success" id="success">
+        <p>✅ Configuración limpiada exitosamente</p>
+        <p>Redirigiendo al portfolio...</p>
+      </div>
+    </div>
+
+    <script>
+      function clearTheme() {
+        // Clear all theme-related items
+        localStorage.removeItem("theme");
+        localStorage.clear();
+
+        // Remove dark class
+        document.documentElement.classList.remove("dark");
+
+        // Show success message
+        document.getElementById("success").style.display = "block";
+
+        // Redirect to home after 2 seconds
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
+      }
+    </script>
+  </body>
+</html>

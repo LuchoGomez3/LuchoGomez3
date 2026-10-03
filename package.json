@@ -1,5 +1,5 @@
 {
-  "name": "Luciano Gomez Portfolio",
+  "name": "port",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -9,11 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@fontsource-variable/onest": "^5.2.9",
-    "@tailwindcss/vite": "^4.1.11",
-    "astro": "^5.12.1",
-    "gsap": "^3.13.0",
-    "split-type": "^0.3.4",
-    "tailwindcss": "^4.1.11"
+    "astro": "^5.16.6"
+  },
+  "devDependencies": {
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/tailwind": "^6.0.2",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "tailwindcss": "^3.4.19"
   }
 }

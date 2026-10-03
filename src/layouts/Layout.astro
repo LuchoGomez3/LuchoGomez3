@@ -1,140 +1,70 @@
 ---
-import Header from "../components/Header/Header.astro";
-import "@fontsource-variable/onest";
-import "../styles/global.css";
-import Footer from "../components/Footer/Footer.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/i18n";
+import "../styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const { title = t("meta.title"), description = t("meta.description") } =
+  Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon2.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Montserrat:wght@600;700&family=Merriweather:wght@400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <!-- Dark Mode Script (prevent flash) -->
     <script is:inline>
-      import { animatedAbout } from "../components/about.js";
-      animatedAbout();
-    </script>
-    <title>Luciano Gomez Portfolio</title>
-    <script is:inline>
-      (function () {
+      const theme = (() => {
         if (
-          localStorage.theme === "dark" ||
-          (!("theme" in localStorage) &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches)
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
         ) {
-          document.documentElement.classList.add("dark");
-        } else {
-          document.documentElement.classList.remove("dark");
+          return localStorage.getItem("theme");
         }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dark";
+        }
+        return "light";
       })();
+
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+
+      window.localStorage.setItem("theme", theme);
     </script>
   </head>
-  <body class="transition-colors">
-    <div id="background-mask">
-      <Header />
-      <slot />
-      <Footer />
-    </div>
-
-    <script is:inline>
-      window.toggleTheme = function () {
-        const html = document.documentElement;
-        const isDark = html.classList.toggle("dark");
-        localStorage.theme = isDark ? "dark" : "light";
-
-        // Actualizar iconos si existen
-        const darkIcon = document.getElementById("theme-toggle-dark-icon");
-        const lightIcon = document.getElementById("theme-toggle-light-icon");
-
-        if (darkIcon && lightIcon) {
-          darkIcon.classList.toggle("hidden", !isDark);
-          lightIcon.classList.toggle("hidden", isDark);
-        }
-      };
-
-      // Inicializar iconos cuando el DOM esté listo
-      document.addEventListener("DOMContentLoaded", function () {
-        const isDark = document.documentElement.classList.contains("dark");
-        const darkIcon = document.getElementById("theme-toggle-dark-icon");
-        const lightIcon = document.getElementById("theme-toggle-light-icon");
-
-        if (darkIcon && lightIcon) {
-          darkIcon.classList.toggle("hidden", !isDark);
-          lightIcon.classList.toggle("hidden", isDark);
-        }
-
-        // Añadir evento al botón
-        const themeToggleBtn = document.getElementById("theme-toggle");
-        if (themeToggleBtn) {
-          themeToggleBtn.addEventListener("click", window.toggleTheme);
-        }
-      });
-    </script>
+  <body class="font-display">
+    <slot />
   </body>
 </html>
-
-<script is:inline>
-  const mask = document.getElementById("background-mask");
-  document.addEventListener("DOMContentLoaded", () => {
-    mask.classList.add("unlock");
-  });
-</script>
-
-<style>
-  :root {
-    color-scheme: light dark;
-  }
-  html,
-  body {
-    transition:
-      background-color 0.3s,
-      color 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    min-height: 100vh;
-    background-color: rgb(255, 255, 255);
-    background-image: linear-gradient(180deg, #ffffff 15%, #a1aea9 98%);
-    color: #000;
-  }
-  html {
-    scroll-behavior: smooth;
-    font-family: "Onest Variable", sans-serif;
-  }
-
-  #background-mask {
-    padding-top: 3rem;
-    mask-image: url("/lock.svg");
-    mask-position: center 25%;
-    mask-repeat: no-repeat;
-    mask-size: 150px;
-
-    &.unlock {
-      animation: lock-reveal 5s forwards ease-in-out;
-    }
-  }
-  @keyframes lock-reveal {
-    0% {
-      mask-size: 150px;
-    }
-    100% {
-      mask-size: 1000vh;
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    html,
-    body {
-      background-image: linear-gradient(
-        180deg,
-        #05192a 23%,
-        #151e4f 55%,
-        #131b40 74%
-      );
-      color: #fff;
-    }
-  }
-</style>

@@ -4,7 +4,7 @@
 
 Building modern web applications with a focus on scalable architectures, AI integrations, and clean code. +3 years of professional experience working with distributed teams, currently at a European AI startup.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-0f7b6c?style=for-the-badge&logo=astro&logoColor=white)](https://portfolio-two-gamma-5ozvf37qpu.vercel.app/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-0f7b6c?style=for-the-badge&logo=astro&logoColor=white)](https://luciano-gomez-portfolio.vercel.app/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/luciano-ariel-gomez-366292215)
 [![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:gomez.luciano.a33@gmail.com)
 
